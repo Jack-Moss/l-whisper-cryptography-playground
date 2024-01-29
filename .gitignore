@@ -17,3 +17,5 @@ main
 # Added by cargo
 
 /target
+# added by me
+.vscode

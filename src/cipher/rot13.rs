@@ -1,6 +1,12 @@
+use std::error::Error;
+
 pub struct Rot13(pub String);
-impl super::Encryptable for Rot13 {
-    fn encrypt (&self) -> String {
+
+impl super::Cipher for Rot13 {
+    fn original_string (&self) -> Result<String, Box<dyn Error>> {
+        String::from(&self.0)
+    }
+    fn encrypted_string (&self) -> Result<String, Box<dyn Error>> {
         self.0
             .chars()
             .map(|ch| match ch {
@@ -11,5 +17,5 @@ impl super::Encryptable for Rot13 {
                 _ => ch,
                 })
                 .collect()
-            }
         }
+}
