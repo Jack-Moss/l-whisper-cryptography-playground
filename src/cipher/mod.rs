@@ -1,3 +1,5 @@
+use std::error::Error;
+
 pub mod rot13;
 pub mod rsa;
 pub trait Cipher {

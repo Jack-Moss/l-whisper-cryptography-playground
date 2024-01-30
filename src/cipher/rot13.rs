@@ -4,9 +4,10 @@ pub struct Rot13(pub String);
 
 impl super::Cipher for Rot13 {
     fn original_string (&self) -> Result<String, Box<dyn Error>> {
-        String::from(&self.0)
+        Ok(String::from(&self.0))
     }
     fn encrypted_string (&self) -> Result<String, Box<dyn Error>> {
+        Ok(
         self.0
             .chars()
             .map(|ch| match ch {
@@ -17,5 +18,5 @@ impl super::Cipher for Rot13 {
                 _ => ch,
                 })
                 .collect()
-        }
+        )}
 }
